@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+</head>
+<body>
+  <div class="container">
+    <p>Get starts by just Tap on Box</p>
+    <p>First player starts as <b>Player X</b></p>
+    <p>And</p>
+    <p>Second Player as <b>Player 0</b></p>
+    <div class="table">
+        <table>
+            <tr>
+                <td id="00" onclick="tick(this)"></td>
+                <td id="01" onclick="tick(this)"></td>
+                <td id="02" onclick="tick(this)"></td>
+            </tr> 
+            <tr>
+                <td id="10" onclick="tick(this)"></td>
+                <td id="11" onclick="tick(this)"></td>
+                <td id="12" onclick="tick(this)"></td>
+            </tr> 
+            <tr>
+                <td id="20" onclick="tick(this)"></td>
+                <td id="21" onclick="tick(this)"></td>
+                <td id="22" onclick="tick(this)"></td>
+            </tr> 
+        </table>
+    </div>
+  </div>
+</body>
+<style>
+    .container
+    {
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+ p{
+    font-size: 22px;
+    color: #005a8b;
+ }
+    td{
+        border: 1px solid black;
+        width:80px;
+        height: 80px;
+        border-radius: 10px;
+        font-size: 55px;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+<script src="tictoe.js"></script>
+</html>
