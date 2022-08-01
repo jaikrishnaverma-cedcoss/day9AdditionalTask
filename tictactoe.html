@@ -56,5 +56,109 @@
         text-align: center;
     }
 </style>
-<script src="tictoe.js"></script>
+<script>
+    var cnt=1;
+var ticArr=[[" "," "," "],[" "," "," "],[" "," "," "]];
+function tick(args)
+{
+
+    let id=args.id;
+    id=id.split('');
+    let id1=parseInt(id[0]);
+    let id2=parseInt(id[1])
+
+    if(ticArr[id1][id2]==" ")
+    {
+
+    if(cnt%2==0)
+    {
+    // args.innerText="O";
+    ticArr[id1][id2]="O";
+    }
+    else
+    {
+    // args.innerText="X";
+    ticArr[id1][id2]="X";
+    }
+    cnt++;
+    populate();
+    if(checkWin()!=-1)
+    {
+    alert("The Match Win By "+checkWin());
+    reset();
+    populate();
+    }
+      console.log(ticArr);
+}
+  
+}
+function reset()
+{
+    for(let i=0;i<3;i++)
+    {
+        for(let j=0;j<3;j++)
+        {
+            
+           ticArr[i][j]=" ";
+        }
+    }
+    cnt=1;
+}
+
+function populate()
+{
+    for(let i=0;i<3;i++)
+    {
+        for(let j=0;j<3;j++)
+        {
+            
+            document.getElementById(i+""+j).innerText=ticArr[i][j];
+        }
+    }
+
+}
+function checkWin()
+{
+    // debugger;
+    let emp=0;
+    for(let k=0;k<3;k++)
+    {
+        for(let j=0;j<3;j++)
+        {
+            
+           if(ticArr[k][j]!=" ")
+            emp++;
+        }
+    }
+    if(emp==9)
+      return "No One. Match Tied";
+      
+     for(let i=0;i<3;i++)
+    {
+      
+        
+        if((ticArr[i][0]=="X") && (ticArr[i][1]=="X") && (ticArr[i][2]=="X"))
+            return "X";
+        if((ticArr[i][0]=="O") && (ticArr[i][1]=="O") && (ticArr[i][2]=="O"))
+            return "O";
+        if((ticArr[0][i]=="X") && (ticArr[1][i]=="X") && (ticArr[2][i]=="X"))
+            return "X";
+        if((ticArr[0][i]=="O") && (ticArr[1][i]=="O") && (ticArr[2][i]=="O"))
+            return "O";
+        if((ticArr[0][0]=="X") && (ticArr[1][1]=="X") && (ticArr[2][2]=="X"))
+            return "X";
+        if((ticArr[0][0]=="O") && (ticArr[1][1]=="O") && (ticArr[2][2]=="O"))
+            return "O";
+        if((ticArr[0][0]=="X") && (ticArr[1][1]=="X") && (ticArr[2][2]=="X"))
+            return "X";
+        if((ticArr[0][2]=="O") && (ticArr[1][1]=="O") && (ticArr[2][0]=="O"))
+            return "O";
+        if((ticArr[0][2]=="X") && (ticArr[1][1]=="X") && (ticArr[2][0]=="X"))
+            return "X";
+       
+    }
+    return -1;
+}
+</script>
+<!-- <script src="tictoe.js"></script> -->
 </html>
