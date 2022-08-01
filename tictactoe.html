@@ -84,9 +84,9 @@ function tick(args)
     populate();
     if(checkWin()!=-1)
     {
-    alert("The Match Win By "+checkWin());
-    reset();
-    populate();
+    
+    setTimeout(()=>{alert("The Match Win By "+checkWin());reset();}, 100);
+  
     }
       console.log(ticArr);
 }
@@ -103,6 +103,7 @@ function reset()
         }
     }
     cnt=1;
+    populate();
 }
 
 function populate()
